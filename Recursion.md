@@ -1,3 +1,11 @@
+# 目錄
+<!-- TOC -->
+- [目錄](#目錄)
+    - [> 排列組合](#排列組合)
+<!-- /TOC -->
+
+# 排列組合
+
 ```cpp
 void perm(vector<int> arr, int idx)
 {
