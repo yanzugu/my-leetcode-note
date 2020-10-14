@@ -1,5 +1,4 @@
 # my-note
 
-<ul>
-  <li><a href="https://github.com/yanzugu/my-leetcode-note/blob/master/Recursion.md">Recursion</a></li>
-</ul>
+- [Recursion](https://github.com/yanzugu/my-leetcode-note/blob/master/Recursion.md)
+- [Sort](https://github.com/yanzugu/my-note/blob/master/Sort.md)
