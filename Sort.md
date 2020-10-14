@@ -17,8 +17,8 @@ Code
 ```
 variable:
 
-int len = ?;
-int arr[len] = {....};
+vector<int> list(?);
+int len = list.size();
 ```
 
 # Bubble Sort
@@ -28,9 +28,9 @@ for (int i = 0; i < len; i++)
 {
     for (int j = 0; j < len-i-1; j++)
     {
-        if (arr[j] > arr[j+1])
+        if (list[j] > list[j+1])
         {
-            swap(arr[j], arr[j+1]);
+            swap(list[j], list[j+1]);
         }
     }
 }
@@ -44,12 +44,12 @@ for (int i = 0; i < len; i++)
     int min = i;
     for (int j = i+1; j < len; j++)
     {
-        if (arr[min] > arr[j])
+        if (list[min] > list[j])
         {
             min = j;
         }
     }
-    swap(arr[min], arr[i]);
+    swap(list[min], list[i]);
 }
 ```
 
@@ -58,12 +58,12 @@ for (int i = 0; i < len; i++)
 ```cpp
 for (int i = 1; i < len; i++)
 {
-    int now = arr[i];
+    int now = list[i];
     int j = i;
-    for (; j > 0 && arr[j-1] >= now; j--)
+    for (; j > 0 && list[j-1] >= now; j--)
     {
-        arr[j] = arr[j-1];
+        list[j] = list[j-1];
     }     
-    arr[j] = now;
+    list[j] = now;
 }
 ```
