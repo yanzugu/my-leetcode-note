@@ -4,6 +4,7 @@
 - [> Bubble Sort](#Bubble-Sort)
 - [> Selection Sort](#Selection-Sort)
 - [> Insertion Sort](#Insertion-Sort)
+- [> Shell Sort](#Shell-Sort)
 <!-- /TOC -->
 
 <!-- 
@@ -13,6 +14,7 @@
 Code
 ```
 -->
+
 
 ```
 variable:
@@ -65,5 +67,43 @@ for (int i = 1; i < len; i++)
         list[j] = list[j-1];
     }     
     list[j] = now;
+}
+```
+
+# Shell Sort
+- #### *將 List 以 Gap 為間隔 {Gap=len/2^n, n=1,2,3...} 進行切塊後再做 Insertion Sort*
+```
+e.g. 
+    list(1) = {5, 8, 1, 3, 2, 4, 7, 6}, len = 8, gap(1) = 4  
+    group(1)(1) = {5, 2} => {2, 5}
+    group(1)(2) = {8, 4} => {4, 8}
+    group(1)(3) = {1, 7} => {1, 7}
+    group(1)(4) = {3, 6} => {3, 6}
+    
+    //////////////////////////////////////////////////////////
+    
+    list(2) = {2, 4, 1, 3, 5, 8, 7, 6}, len = 8, gap(2) = 2
+    group(2)(1) = {2, 1, 5, 7} => {1, 2, 5, 7}
+    group(2)(2) = {4, 3, 8, 6} => {3, 4, 6, 8}
+    
+    //////////////////////////////////////////////////////////
+    
+    list(3) = {1, 3, 2, 4, 5, 6, 7, 8}, len = ; gap(3) = 1
+    group(3)(1) = {1, 3, 2, 4, 5, 6, 7, 8} => {1, 2, 3, 4, 5, 6, 7, 8}
+```
+
+```cpp                 
+for (int gap = len/2; gap > 0; gap /= 2)   // 得到 Gap
+{
+    for (int i = gap; i < len; i++)        // 從每個間隔的第二個數開始做 Insertion Sort
+    {
+        int now = list[i];
+        int j = i;
+        for (; j >= gap && now <= list[j-gap]; j -= gap)
+        {
+            list[j] = list[j-gap];
+        }
+        list[j] = now;
+    }
 }
 ```
